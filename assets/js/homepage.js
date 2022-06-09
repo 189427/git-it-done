@@ -1,6 +1,8 @@
 var getUserRepos = function(user) {
     // format the github api url
     var apiUrl = "https://api.github.com/users/" + user + "/repos";
+    var userFormEl = document.querySelector("#user-form");
+    var nameInputEl = document.querySelector("#username");
   
     // make a request to the url
     fetch(apiUrl).then(function(response) {
@@ -10,4 +12,11 @@ var getUserRepos = function(user) {
     });
   };
 
-  getUserRepos(189427);
+  var formSubmitHandler = function(event) {
+    event.preventDefault();
+    console.log(event);
+  };
+
+
+
+  userFormEl.addEventListener("submit", formSubmitHandler);
